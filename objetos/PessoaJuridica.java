@@ -1,27 +1,27 @@
 package poo.entidade;
 
-public class PessoaJuridica {
-	
+public class PessoaJuridica extends Cliente{
+	public PessoaJuridica(String nome, String endereco, String cidade, int cep) {
+		super(nome, endereco, cidade, cep);
+	}
 	private String cnpj;
 	private String inscricaoEstadual;
 	private String razaoSocial;
-	
-	//classe Cliente
-	private Cliente cj;
 	
 	//inicializando as variáveis da classe
 	public PessoaJuridica() {
 		this.cnpj = "";
 		this.inscricaoEstadual = "";
 		this.razaoSocial = "";
-		this.cj = new Cliente();
 	}
 		
 	//criação do objeto, onde "o" significa objeto.
-	public PessoaJuridica(String oCnpj, String oInscricaoE, String oRazaoS){
+	public PessoaJuridica(String nome, String endereco, String cidade, int cep, String oCnpj, String oInscricaoE, String oRazaoS){
+		super(nome, endereco, cidade, cep);
 		this.cnpj = oCnpj;
 		this.inscricaoEstadual = oInscricaoE;
 		this.razaoSocial = oRazaoS;
+
 	}
 	
 	//métodos de modificação
@@ -37,9 +37,6 @@ public class PessoaJuridica {
 		this.razaoSocial = rs;
 	}
 
-	public void setCliente (Cliente clj) {
-		this.cj = clj;
-	}
 	
 	//métodos de acesso
 	public String getCnpj() {
@@ -52,10 +49,6 @@ public class PessoaJuridica {
 	
 	public String getRazaoSocial() {
 		return this.razaoSocial;
-	}
-	
-	public Cliente getCliente() {
-		return this.cj;
 	}
 	
 }

@@ -2,27 +2,27 @@ package poo.entidade;
 
 import java.util.Date;
 
-public class PessoaFisica {
-	
+public class PessoaFisica extends Cliente{
+	public PessoaFisica(String nome, String endereco, String cidade, int cep) {
+		super(nome, endereco, cidade, cep);
+	}
 	private String cpf;
 	private String rg;
 	private char genero;
 	private Date dataNascimento;
 	
-	//classe Cliente
-	private Cliente cf;
 		
 	//inicializando as variáveis da classe
-	public PessoaFisica() {
+	public PessoaFisica(){
 		this.cpf = "";
 		this.rg = "";
 		this.genero = 'x';
 		this.dataNascimento = new Date();
-		this.cf = new Cliente();
 	}
 		
 	//criação do objeto, onde "o" significa objeto
-	public PessoaFisica(String oCpf, String oRg, char oGenero, Date oDNascimento){
+	public PessoaFisica(String nome, String endereco, String cidade, int cep, String oCpf, String oRg, char oGenero, Date oDNascimento){
+		super(nome, endereco, cidade, cep);
 		this.cpf = oCpf;
 		this.rg = oRg;
 		this.genero = oGenero;
@@ -46,9 +46,6 @@ public class PessoaFisica {
 		this.dataNascimento = dn;
 	}
 	
-	public void setCliente (Cliente clf) {
-		this.cf = clf;
-	}
 	
 	//métodos de acesso
 	public String getCpf() {
@@ -67,7 +64,4 @@ public class PessoaFisica {
 		return this.dataNascimento;
 	}
 	
-	public Cliente getCliente() {
-		return this.cf;
-	}
 }
